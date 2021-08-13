@@ -1,0 +1,2 @@
+parameters:
+  app.nbp_api.url: '%env(NBP_API_URL))%'

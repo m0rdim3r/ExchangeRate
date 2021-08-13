@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use App\Entity\Traits\CreatedAtEntityTrait;
+use App\Entity\Traits\UpdatedAtEntityTrait;
 use App\Repository\CurrencyRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Uid\Uuid;
@@ -14,6 +16,9 @@ use Symfony\Component\Uid\Uuid;
  */
 class Currency
 {
+    use CreatedAtEntityTrait;
+    use UpdatedAtEntityTrait;
+
     /**
      * @ORM\Id
      * @ORM\Column(type="uuid", unique=true)

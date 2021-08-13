@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'Currency rates'|trans }}{% endblock %}
+
+{% block body %}
+    <table class="table table-bordered table-hover" id="currencyTable">
+        <thead>
+            <tr>
+                <th>{{ 'Name'|trans }}</th>
+                <th>{{ 'Currency code'|trans }}</th>
+                <th>{{ 'Currency mid rate'|trans }}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tmp in currency %}
+            <tr>
+                <td>{{ tmp.name }}</td>
+                <td>{{ tmp.currencyCode }}</td>
+                <td>{{ tmp.exchangeRate|number_format(4) }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#currencyTable').DataTable({
+
+            });
+        });
+    </script>
+{% endblock %}

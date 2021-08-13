@@ -1,6 +1,6 @@
 FROM php:7.4-fpm
 
-RUN apt update && apt-get install -y nano git
+RUN apt update && apt-get install -y nano git iputils-ping
 RUN docker-php-ext-install pdo_mysql
 
 COPY php.ini /usr/local/etc/php/php.ini
