@@ -114,3 +114,5 @@
 192.168.80.1 - - [13/Aug/2021:12:17:01 +0000] "GET /_wdt/97e855 HTTP/1.1" 200 18070 "http://127.0.0.200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36 OPR/78.0.4093.112"
 192.168.80.1 - - [13/Aug/2021:12:17:36 +0000] "GET / HTTP/1.1" 200 58494 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36 OPR/78.0.4093.112"
 192.168.80.1 - - [13/Aug/2021:12:17:36 +0000] "GET /_wdt/639cef HTTP/1.1" 200 18071 "http://127.0.0.200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36 OPR/78.0.4093.112"
+192.168.96.1 - - [13/Aug/2021:16:17:32 +0000] "GET / HTTP/1.1" 500 245 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36 OPR/78.0.4093.112"
+192.168.96.1 - - [13/Aug/2021:16:20:04 +0000] "GET / HTTP/1.1" 404 32091 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36 OPR/78.0.4093.112"
