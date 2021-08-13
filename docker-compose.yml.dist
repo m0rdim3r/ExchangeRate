@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+  database:
+    build:
+      context: ./docker/database
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret
+    ports:
+      - '127.0.0.200:3306:3306'
+    networks:
+      default: ~
+
+  php:
+    build:
+      context: ./docker/php-fpm
+    depends_on:
+      - database
+    dns:
+      - 8.8.8.8
+    volumes:
+      - ./:/var/www
+    networks:
+      default: ~
+
+  nginx:
+    build:
+      context: ./docker/nginx
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./docker/nginx/sites/:/etc/nginx/sites-available
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d
+      - ./docker/logs:/var/log
+    depends_on:
+      - php
+    ports:
+      - '127.0.0.200:80:80'
+    networks:
+      default: ~
+
+networks:
+  default:
+    external:
+      name: exchange_rate
