@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Currency;
-use App\Handler\ExchangeRatesHandler;
 use App\Service\ApiClient\NbpApiClient;
 use App\Traits\EntityManagerTrait;
 use GuzzleHttp\Exception\GuzzleException;
@@ -19,18 +18,14 @@ class CurrencyController extends AbstractController
      * @Route("/", name="currency")
      * @throws GuzzleException
      */
-    public function index(NbpApiClient $nbpApiClient, ExchangeRatesHandler $handler): Response
+    public function index(NbpApiClient $nbpApiClient): Response
     {
-        $response = $nbpApiClient->get();
+        $message = $nbpApiClient->get();
 
-        if (is_array($response)) {
-            $handler->handle($response);
-        } else {
-            $this->get('session')->getFlashBag()->add(
-                'error',
-                $response
-            );
-        }
+        $this->get('session')->getFlashBag()->add(
+            $message[0],
+            $message[1]
+        );
 
         return $this->render('currency/index.html.twig', [
             'currency' => $this->em->getRepository(Currency::class)->findAll(),

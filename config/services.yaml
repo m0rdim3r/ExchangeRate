@@ -24,6 +24,10 @@ services:
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
 
+    exchange.rate.handler:
+        class: App\Handler\ExchangeRatesHandler
+
     App\Service\ApiClient\NbpApiClient:
         arguments:
             - '%env(NBP_API_URL)%'
+            - '@exchange.rate.handler'

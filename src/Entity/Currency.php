@@ -6,7 +6,6 @@ use App\Entity\Traits\CreatedAtEntityTrait;
 use App\Entity\Traits\UpdatedAtEntityTrait;
 use App\Repository\CurrencyRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Uid\Uuid;
 
 /**
  * @ORM\Entity(repositoryClass=CurrencyRepository::class)
@@ -20,8 +19,11 @@ class Currency
     use UpdatedAtEntityTrait;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer", options={"unsigned"=true})
      * @ORM\Id
-     * @ORM\Column(type="uuid", unique=true)
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
@@ -41,12 +43,7 @@ class Currency
     private $exchangeRate;
 
 
-    public function __construct()
-    {
-        $this->id = Uuid::v4();
-    }
-
-    public function getId(): Uuid
+    public function getId(): int
     {
         return $this->id;
     }
