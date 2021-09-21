@@ -9,6 +9,7 @@
                 <th>{{ 'Name'|trans }}</th>
                 <th>{{ 'Currency code'|trans }}</th>
                 <th>{{ 'Currency mid rate'|trans }}</th>
+                <th>{{ 'Last actualisation'|trans }}</th>
             </tr>
         </thead>
         <tbody>
@@ -17,6 +18,7 @@
                 <td>{{ tmp.name }}</td>
                 <td>{{ tmp.currencyCode }}</td>
                 <td>{{ tmp.exchangeRate|number_format(4) }}</td>
+                <td>{{ tmp.updatedAt|date('Y-m-d H:i:s') }}</td>
             </tr>
         {% endfor %}
         </tbody>
