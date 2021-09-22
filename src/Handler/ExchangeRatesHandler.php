@@ -9,6 +9,9 @@ class ExchangeRatesHandler
 {
     use EntityManagerTrait;
 
+    /**
+     * @param array $date
+     */
     public function handle(array $date)
     {
         $tmp = array_pop($date);
